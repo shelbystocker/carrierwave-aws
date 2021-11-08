@@ -45,7 +45,7 @@ module CarrierWave
         @connection ||= begin
           conn_cache = self.class.connection_cache
 
-          conn_cache[credentials] ||= ::Aws::S3::Resource.new(*credentials)
+          conn_cache[credentials] ||= ::Aws::S3::Resource.new(endoint: 'http://localhost:4566')
         end
       end
 
